@@ -56,7 +56,7 @@ def _import_torch():
     global torch
     if torch is None: # import only once
         try:
-            import torch as _torch 
+            import _torch 
         except ImportError as e:
             raise MNISTException(
                 "need to have torch installed to return tensors."
@@ -156,7 +156,7 @@ class MNIST(object):
 
         self.train_images = self.process_images(ims)
 
-        return self.train_images
+        return self.train_images, self.train_labels
 
     def load_training_in_batches(self, batch_size):
         if type(batch_size) is not int:
